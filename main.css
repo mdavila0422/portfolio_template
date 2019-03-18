@@ -106,50 +106,90 @@ a{
     width: 300px;
 }
 
+.avatar{
+    border-radius: 100%;
+    margin: 0 1.5em;
+    justify-content: center;
+    height: auto;
+}
+
+.side-img{
+    transform: scale(0.6);
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: relative;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 24px;
+    color: green;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 50%;
+    background: goldenrod;
+    user-select: none;
+    height: max-content;
+}
+
 /* ========== Animations ================= */
 @keyframes fade-up {
     from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
         opacity: 1;
         transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-13%);
     }
 }
 
 @keyframes fade-down {
     from {
-        opacity: 0;
-        transform: translateY(-15px);
-    }
-    to {
         opacity: 1;
         transform: translateY(0);
     }
+    to {
+        opacity: 0;
+        transform: translateY(13%);
+    }
 }
 
-@keyframes fade {
+@keyframes fade-in {
     from {opacity: 0;}
     to {opacity: 1;}
 }
 
-.fade-down {
-    display: block;
-    opacity: 1;
-    transition: opacity 300ms linear;
+@keyframes fade-out-in {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
 }
 
-.display{
-    animation: fade-up ease 400ms forwards;
+@keyframes fade-out-in2 {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
 }
 
-.page-up{
-    display: none;
-    animation: fade-up ease 400ms forwards;
+.fade-in-element{
+    animation: fade-in ease-in .25s forwards;
 }
 
-.page-up{
-    display: none;
-    animation: fade-down ease 400ms forwards;
+.fade-out-in{
+    animation: fade-out-in ease-in-out .85s forwards;
+}
+
+.fade-out-in2{
+    animation: fade-out-in2 ease-in-out .85s forwards;
+}
+
+.fade-up-element{
+    animation: fade-up linear .25s forwards;
+}
+
+.fade-down-element{
+    animation: fade-down linear .25s forwards;
 }
