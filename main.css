@@ -17,6 +17,7 @@ html, body{
 
 section{
     display: none;
+    max-width: 900px;
 }
 
 a{
@@ -101,13 +102,21 @@ a{
     animation: fadein 2s;
 } */
 
+.project-container{
+    width: 960px;
+    height: 100%;
+    margin: 40px auto;
+    display: flex;
+    background: cornflowerblue;
+}
+
 .projects-text{
     text-align: center;
 }
 
 .projects-avatar{
     border-radius: 100%;
-    width: 300px;
+    width: 100px;
 }
 
 .avatar{

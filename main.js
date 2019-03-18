@@ -8,7 +8,7 @@
     }); */
 var pageSection = document.querySelectorAll("section");
 var currentPage = document.querySelector("section div.display");
-var slideContainer = document.querySelector("#Projects div.container");
+var slideContainer = document.querySelector("#Projects div.project-container");
 var slides = document.getElementsByClassName("project-slide");
 var currIndex = 0;
 var slideIndex = 1;
@@ -67,9 +67,7 @@ function showSlides(n) {
     if (n >= slides.length) {slideIndex = 0} //go to start
     if (n < 0) {slideIndex = (slides.length - 1)} //go to end
     //replace the scaling
-    slideContainer.classList.add('fade-out-in');
     swap(slides);
-    slideContainer.className = 'container';
   }
 
   function swap(arr) {
@@ -79,9 +77,9 @@ function showSlides(n) {
         container.insertBefore(arr[0], arr[2].nextSibling);//take first element and move it to end
         for(let i = 0; i < arr.length; i++){
             arr[i].style.order = i; //change the order of the div
-            arr[i].className = 'side-img mySlides'; //style the side divs
+            arr[i].className = 'side-img project-slide'; //style the side divs
             if(i === 1){    //style main div
-                arr[i].className = 'main-img mySlides';
+                arr[i].className = 'main-img project-slide';
             } else if(i >= 3){
                 arr[i].style.display = 'none';
                 return;
