@@ -15,6 +15,10 @@ html, body{
     background: transparent;  /* optional: just make scrollbar invisible */
 }
 
+section{
+    display: none;
+}
+
 a{
     color: inherit;
 }
