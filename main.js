@@ -20,8 +20,14 @@ window.addEventListener('wheel', function(e){
     fadeScroll();
 });
 window.addEventListener('keyup', function(e){
-    scrollUp = e.code ==='ArrowDown' ? false : true;
-    fadeScroll();
+    if(e.code === 'ArrowDown'){
+        scrollUp = false;
+        fadeScroll();
+    }
+    else if (e.code === "ArrowUp"){
+        scrollUp = true;
+        fadeScroll();
+    } 
 });
 
 //display the first section
