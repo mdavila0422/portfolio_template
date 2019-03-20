@@ -84,8 +84,10 @@ function showSlides(n) {
         for(let i = 0; i < arr.length; i++){
             arr[i].style.order = i; //change the order of the div
             arr[i].className = 'side-img project-slide'; //style the side divs
+            arr[i].lastElementChild.style.visibility = 'hidden';
             if(i === 1){    //style main div
                 arr[i].className = 'main-img project-slide';
+                arr[i].lastElementChild.style.visibility = 'visible';
             } else if(i >= 3){
                 arr[i].style.display = 'none';
                 return;

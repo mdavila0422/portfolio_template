@@ -18,6 +18,9 @@ html, body{
 section{
     display: none;
     max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    top: 100px;
 }
 
 a{
@@ -109,21 +112,27 @@ a{
     display: flex;
     background: cornflowerblue;
 }
-
+.project-slide:nth-child(2){
+    flex-grow: 2;
+}
 .projects-text{
     text-align: center;
+    margin: 10px 0;
 }
 
 .projects-avatar{
     border-radius: 100%;
-    width: 100px;
+    width: 200px;
+    display: block;
+    margin: 1.1em auto;
 }
 
-.avatar{
-    border-radius: 100%;
-    margin: 0 1.5em;
-    justify-content: center;
-    height: auto;
+.project-description{
+    visibility: hidden;
+}
+
+.project-description:nth-child(2){
+    visibility: visible;
 }
 
 .side-img{
@@ -132,20 +141,29 @@ a{
 
 .prev, .next {
     cursor: pointer;
-    position: relative;
+    position: absolute;
     top: 50%;
     width: auto;
     margin-top: -22px;
     padding: 24px;
-    color: green;
+    color: grey;
     font-weight: bold;
     font-size: 18px;
     transition: 0.6s ease;
     border-radius: 50%;
-    background: goldenrod;
+    background: black;
     user-select: none;
     height: max-content;
 }
+
+.prev {
+    left: -80px;
+}
+
+.next{
+    right: -140px;
+}
+
 
 /* ========== Animations ================= */
 @keyframes fade-up {
