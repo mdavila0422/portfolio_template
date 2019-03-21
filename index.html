@@ -11,81 +11,91 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
 </head>
 <body>
-    <header class="navbar">
-        <img src="" alt="logo" class="logo">
-        <strong class="logo">Logo</strong>
-        <!-- Table of Contents -->
-        <a href="#"><i class="fas fa-bars right"></i></a>
-    </header>
-
-    <div class="side-nav">
-        <p>Home</p>
-    </div>
-
-    <section id="Home" class="">
-        <div class="container">
-            <div class="main-home">
-                    <div class="main-home-container">
-                        <h1 class="home-title">Welcome to<br> Martin's <br> portfolio</h1>
-                        <button class="button home-button">Hire us</button>
-                    </div><!--
-                    --><div class="main-home-container">
-                            <img class="home-img" src="assets/match.jpeg" alt="match">
-                    </div>
-            </div>
-    
-            <div class="info-container">
-                <h2>Self Taught</h2>
-                <p>Lorem ipsum dolor sit amet.<br> Consectetur adipisicing elit sed dol.</p>
-            </div><!--
-
-            --><div class="info-container">
-                <h2>Higly Passionate</h2>
-                <p>Lorem ipsum dolor sit amet.<br> Consectetur adipisicing elit sed dol.</p>
-                </div><!--
+    <div class="viewport">
+        <div class="view-wrapper">
+            <header class="navbar">
+                <img src="" alt="logo" class="logo">
+                <strong class="logo">Logo</strong>
+                <!-- Table of Contents -->
+                <a href="#"><i class="fas fa-bars right"></i></a>
+            </header>
         
-            --><div class="info-container">
-                <h2>Analytical</h2>
-                <p>Lorem ipsum dolor sit amet.<br> Consectetur adipisicing elit sed dol.</p>
-            </div>
+            <nav class="side-nav">
+                <ul class="side-nav-list">
+                    <li><span>Home</span></li>
+                    <li><span>Projects</span></li>
+                    <li><span>About</span></li>
+                    <li><span>Contact</span></li>
+                    <li><span>Hire Us</span></li>
+                </ul>
+            </nav>
+        
+            <section id="Home" class="">
+                <div class="container">
+                    <div class="main-home">
+                            <div class="main-home-container">
+                                <h1 class="home-title">Welcome to<br> Martin's <br> portfolio</h1>
+                                <button class="button home-button">Hire us</button>
+                            </div><!--
+                            --><div class="main-home-container">
+                                    <img class="home-img" src="assets/match.jpeg" alt="match">
+                            </div>
+                    </div>
+            
+                    <div class="info-container">
+                        <h2>Self Taught</h2>
+                        <p>Lorem ipsum dolor sit amet.<br> Consectetur adipisicing elit sed dol.</p>
+                    </div><!--
+        
+                    --><div class="info-container">
+                        <h2>Higly Passionate</h2>
+                        <p>Lorem ipsum dolor sit amet.<br> Consectetur adipisicing elit sed dol.</p>
+                        </div><!--
+                
+                    --><div class="info-container">
+                        <h2>Analytical</h2>
+                        <p>Lorem ipsum dolor sit amet.<br> Consectetur adipisicing elit sed dol.</p>
+                    </div>
+                </div>
+        
+            </section>
+        
+            <section id="Projects" class="">
+                <h1 class="projects-title projects-text">Selected Work</h1>
+                <div id="showScroll"></div>
+                <div class="project-container">
+                    <div class="project-slide side-img">
+                        <img class="projects-avatar" src="assets/calc.jpg">
+                        <h2 class="project-name projects-text">Calculator</h2>
+                        <p class="project-description projects-text">This is a simple calculator written in JS</p>
+                    </div>
+                    <div class="project-slide main-img">
+                        <img class="projects-avatar" src="assets/match.jpeg">
+                        <h2 class="project-name projects-text">Ghibli App</h2>
+                        <p class="project-description projects-text">This is a web app to view all ghibli films</p>
+                    </div>
+                    <div class="project-slide side-img">
+                        <img class="projects-avatar" src="assets/calc.jpg">
+                        <h2 class="project-name projects-text">Tic Tac Toe</h2>
+                        <p class="project-description projects-text">This is a simple calculator written in JS</p>
+                    </div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </section>
+        
+            <section id="About" class="">
+                <div class="container">
+                    <h1>About</h1>
+                </div>
+        
+            </section>
+        
+            <section id="Contact" class="">
+                <h1>Contact</h1>
+            </section>
         </div>
-
-    </section>
-
-    <section id="Projects" class="">
-        <h1 class="projects-title projects-text">Selected Work</h1>
-        <div id="showScroll"></div>
-        <div class="project-container">
-            <div class="project-slide side-img">
-                <img class="projects-avatar" src="assets/calc.jpg">
-                <h2 class="project-name projects-text">Calculator</h2>
-                <p class="project-description projects-text">This is a simple calculator written in JS</p>
-            </div>
-            <div class="project-slide main-img">
-                <img class="projects-avatar" src="assets/match.jpeg">
-                <h2 class="project-name projects-text">Ghibli App</h2>
-                <p class="project-description projects-text">This is a web app to view all ghibli films</p>
-            </div>
-            <div class="project-slide side-img">
-                <img class="projects-avatar" src="assets/calc.jpg">
-                <h2 class="project-name projects-text">Tic Tac Toe</h2>
-                <p class="project-description projects-text">This is a simple calculator written in JS</p>
-            </div>
-        </div>
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </section>
-
-    <section id="About" class="">
-        <div class="container">
-            <h1>About</h1>
-        </div>
-
-    </section>
-
-    <section id="Contact" class="">
-        <h1>Contact</h1>
-    </section>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
