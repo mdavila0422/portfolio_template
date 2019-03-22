@@ -1,13 +1,6 @@
-/* $(window).bind('mousewheel', function(event) {
-    if (event.originalEvent.wheelDelta >= 0) {
-        console.log('Scroll up');
-    }
-    else {
-        console.log('Scroll down');
-    }
-    }); */
 var pageSection = document.querySelectorAll("section");
 var currentPage = document.querySelector("section div.display");
+var sidenavList = document.querySelectorAll('.side-nav-list li');
 var slideContainer = document.querySelector("#Projects div.project-container");
 var slides = document.getElementsByClassName("project-slide");
 var currIndex = 0;
@@ -32,34 +25,61 @@ window.addEventListener('keyup', function(e){
 
 //display the first section
 pageSection[currIndex].style.display = 'block';
+sidenavList[currIndex].classList.add('is-active');
+sidenavList[currIndex].firstChild.style.opacity = 1;
+sidenavList[currIndex].firstChild.style.visibility = 'visible';
 
 function fadeScroll(){
     //fade up/down based on scroll
+    changeNav(currIndex);
     if(scrollUp){
         pageSection[currIndex].classList.add('fade-down-element');
         setTimeout(function() {//hide and display other page
-            hide(pageSection[currIndex]);
+            hide(currIndex);
             currIndex === 0 ? currIndex = (pageSection.length - 1) : currIndex--;
-            show(pageSection[currIndex]);//show next page in 
+            show(currIndex);//show next page in
+            sidenavList[currIndex].classList.add('is-active'); 
         }, 500);
     } else{
         pageSection[currIndex].classList.add('fade-up-element');
         setTimeout(function() {//hide and display other page
-            hide(pageSection[currIndex]);
+            hide(currIndex);
             currIndex === (pageSection.length - 1) ? currIndex = 0 : currIndex++;
-            show(pageSection[currIndex]);
+            show(currIndex);
+            sidenavList[currIndex].classList.add('is-active');
         }, 500);
     }
 }
 
-var show = function(elem) {
-    elem.style.display = 'block';
-    elem.classList.add('fade-in-element');
+function changeNav(index) {
+    var j = index;
+    sidenavList[j].classList.remove('is-active');
+    sidenavList[j].firstChild.style.opacity = 0;
+    sidenavList[j].firstChild.style.visibility = 'hidden';
+    if(scrollUp){
+        j === 0 ? j = (pageSection.length - 1) : j--;
+        sidenavList[j].firstChild.style.opacity = 1;
+        sidenavList[j].firstChild.style.visibility = 'visible';
+        sidenavList[j].classList.add('is-active');
+    }else {
+        j === (pageSection.length - 1) ? j = 0 : j++;
+        sidenavList[j].firstChild.style.opacity = 1;
+        sidenavList[j].firstChild.style.visibility = 'visible';
+        sidenavList[j].classList.add('is-active');
+    }
+    
 }
 
-var hide = function(elem) {
-    elem.style.display = 'none';
-    elem.className = 'container';
+var show = function(index) {
+    pageSection[index].style.display = 'block';
+    pageSection[index].classList.add('fade-in-element');
+    
+}
+
+var hide = function(index) {
+    pageSection[index].style.display = 'none';
+    pageSection[index].className = 'container';
+    
 }
 
 // Next/previous controls
