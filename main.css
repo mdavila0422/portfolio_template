@@ -333,7 +333,54 @@ a{
     top: -20px;
 }
 
+/* ========== Contact ================= */
+.modal{
+    position: relative;
+    width: 250px;
+    height: 350px;
+    top: 25%;
+    left: 50%;
+    background: black;
+    color: #fff;
+    text-align: center;
+}
 
+.modal p{
+    margin: 5px;
+}
+
+.modal p:first-child{
+    padding-top: 35px;
+}
+
+.modal p:last-of-type{
+    padding-bottom: 15px;
+}
+
+.contact-button{
+    color: #fff;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 130px;
+    margin: 10px;
+    padding: 10px 24px;
+    cursor: pointer;
+}
+
+.linkedin{
+    background-color: #0077B5;
+}
+
+.github{
+    background-color: #24292E;
+}
+
+.contact{
+    background-color: #1f1fe0;
+}
 /* ========== Animations ================= */
 @keyframes fade-up {
     from {
