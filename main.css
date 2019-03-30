@@ -390,6 +390,10 @@ a{
     cursor: pointer;
 }
 
+.modal i{
+    font-size: 18px;
+}
+
 .linkedin{
     background-color: #0077B5;
 }
