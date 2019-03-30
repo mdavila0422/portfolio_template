@@ -67,6 +67,7 @@ a{
     display: flex;
     height: 100%;
     align-items: center;
+    z-index: 100;
 }
 /* vertical line */
 .side-nav::before{
@@ -334,12 +335,31 @@ a{
 }
 
 /* ========== Contact ================= */
+.map-container{
+    position: fixed;
+    background: url("assets/snazzy-image.png") no-repeat center center fixed;
+    background-size: 100%;
+    /* Set rules to fill background */
+    min-height: 95%;  
+    min-width: 1024px;
+        
+    /* Set up proportionate scaling */
+    width: 99%;
+    height: auto;
+        
+    /* Set up positioning */
+    top: 60px;
+    left: 70px;
+    /* change  */
+    box-shadow: 100px 100px 100px 0 grey inset, -100px -100px 100px 0 grey inset;
+}
+
 .modal{
-    position: relative;
+    position: fixed;
     width: 250px;
     height: 350px;
-    top: 25%;
-    left: 50%;
+    top: 35%;
+    left: 70%;
     background: black;
     color: #fff;
     text-align: center;

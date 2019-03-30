@@ -78,8 +78,7 @@ var show = function(index) {
 
 var hide = function(index) {
     pageSection[index].style.display = 'none';
-    pageSection[index].className = 'container';
-    
+    pageSection[index].className = 'container'; 
 }
 
 // Next/previous controls
