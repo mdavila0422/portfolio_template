@@ -160,6 +160,7 @@ a{
     width: 960px;
     height: 100%;
     margin: 50px auto;
+    text-align: center;
 }
 
 .home-title{
@@ -406,6 +407,7 @@ a{
 .contact{
     background-color: #1f1fe0;
 }
+
 /* ========== Animations ================= */
 @keyframes fade-up {
     from {
