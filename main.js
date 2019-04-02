@@ -3,6 +3,7 @@ var currentPage = document.querySelector("section div.display");
 var sidenavList = document.querySelectorAll('.side-nav-list li');
 var slideContainer = document.querySelector("#Projects div.project-container");
 var slides = document.getElementsByClassName("project-slide");
+var checkButtons = document.getElementsByClassName("check-button");
 var currIndex = 0;
 var slideIndex = 1;
 var slideRight = false;
@@ -87,6 +88,39 @@ function plusSlides(n) {
     slideIndex += n;
     showSlides(slideIndex);
 }
+
+function removeElement(elementID){
+    var element = document.getElementById(elementID);
+    element.parentNode.removeChild(element);
+}
+
+function buttonToggle() {
+    const icon = "<i id='icon' class='fas fa-check'></i>";
+    var final = icon + this.innerHTML;
+    if (this.className.indexOf('checked') > -1) {
+        this.classList.remove('checked');
+        this.removeChild(this.firstChild);
+    } else {
+        this.classList.add('checked');
+        this.innerHTML = final;
+    }
+}
+
+document.querySelectorAll('.check-button').forEach((a) => a.addEventListener('click', buttonToggle));
+
+/* document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('check-button')){
+        const icon = "<i id='icon' class='fas fa-check'></i>";
+        var final = icon + event.target.innerHTML;
+        if (event.target.className.indexOf('checked') > -1) {
+        event.target.classList.remove('checked');
+        event.target.removeChild(event.target.firstChild);
+        } else {
+        event.target.classList.add('checked');
+        event.target.innerHTML = final;
+        }
+    }
+}, false); */
 
 function showSlides(n) {
     if (n >= slides.length) {slideIndex = 0} //go to start

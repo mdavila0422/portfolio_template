@@ -466,7 +466,7 @@ a{
     cursor: pointer;
 }
 
-.check-button:focus {
+.checked {
     background: limegreen;
     border: solid 2px transparent;
     transition: all .3s ease-out;
