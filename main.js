@@ -79,14 +79,9 @@ var show = function(index) {
 
 var hide = function(index) {
     pageSection[index].style.display = 'none';
-    pageSection[index].className = 'container'; 
-}
-
-// Next/previous controls
-function plusSlides(n) {
-    if(n > 0) {slideRight = true;}
-    slideIndex += n;
-    showSlides(slideIndex);
+    pageSection[index].classList.remove('fade-in-element');
+    pageSection[index].classList.remove('fade-up-element');
+    pageSection[index].classList.remove('fade-down-element'); 
 }
 
 function removeElement(elementID){
@@ -122,11 +117,25 @@ document.querySelectorAll('.check-button').forEach((a) => a.addEventListener('cl
     }
 }, false); */
 
+slideContainer.addEventListener('animationend', endFunction);
+
+// Next/previous controls
+function plusSlides(n) {
+    if(n > 0) {slideRight = true;}
+    slideIndex += n;
+    showSlides(slideIndex);
+}
+
 function showSlides(n) {
     if (n >= slides.length) {slideIndex = 0} //go to start
     if (n < 0) {slideIndex = (slides.length - 1)} //go to end
-    //replace the scaling
+    //initiate the animation, swap then remove animation
+    slideContainer.classList.add('fade-in-element');
     swap(slides);
+  }
+
+  function endFunction() {
+      this.classList.remove('fade-in-element');
   }
 
   function swap(arr) {
