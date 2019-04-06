@@ -36,10 +36,10 @@ button:focus {
 
 section{
     display: none;
-    max-width: 900px;
+    max-width: 960px;
     margin: 0 auto;
     position: relative;
-    margin-top: 100px;
+    margin-top: 125px;
 }
 
 a{
@@ -219,9 +219,8 @@ a{
 .project-container{
     width: 960px;
     height: 100%;
-    margin: 40px auto;
+    margin: 80px auto;
     display: flex;
-    background: cornflowerblue;
 }
 .project-slide:nth-child(2){
     flex-grow: 2;
@@ -233,8 +232,8 @@ a{
 
 .projects-avatar{
     border-radius: 100%;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     display: block;
     margin: 1.1em auto;
 }
@@ -248,7 +247,7 @@ a{
 }
 
 .side-img{
-    transform: scale(0.6);
+    transform: scale(0.5);
 }
 
 .prev, .next {
@@ -265,7 +264,6 @@ a{
     border-radius: 50%;
     background: black;
     user-select: none;
-    
 }
 
 .prev {
@@ -427,6 +425,7 @@ a{
     font-size: 36px;
     font-weight: 300px;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .category-container{
