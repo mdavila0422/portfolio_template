@@ -216,11 +216,6 @@ a{
 }
 
 /* ========== Projects ================= */
-/* #Projects{
-    display: none;
-    animation: fadein 2s;
-} */
-
 .project-container{
     width: 960px;
     height: 100%;
@@ -239,6 +234,7 @@ a{
 .projects-avatar{
     border-radius: 100%;
     width: 200px;
+    height: 200px;
     display: block;
     margin: 1.1em auto;
 }
@@ -259,17 +255,17 @@ a{
     cursor: pointer;
     position: absolute;
     top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 24px;
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
     color: grey;
     font-weight: bold;
     font-size: 18px;
-    transition: 0.6s ease;
     border-radius: 50%;
     background: black;
     user-select: none;
-    height: max-content;
+    
 }
 
 .prev {
@@ -427,7 +423,7 @@ a{
     margin: 0 auto;
 }
 
-.hire-container > h1{
+.section-title{
     font-size: 36px;
     font-weight: 300px;
     text-align: center;
@@ -554,14 +550,8 @@ input[type="email"]:focus + label {
 }
 
 @keyframes fade-out-in {
-    0% {opacity: 1;}
-    50% {opacity: 0;}
-    100% {opacity: 1;}
-}
-
-@keyframes fade-out-in2 {
-    0% {opacity: 1;}
-    50% {opacity: 0;}
+    0% {opacity: 0;}
+    /* 50% {opacity: 0;} */
     100% {opacity: 1;}
 }
 
@@ -570,11 +560,7 @@ input[type="email"]:focus + label {
 }
 
 .fade-out-in{
-    animation: fade-out-in ease-in-out .85s forwards;
-}
-
-.fade-out-in2{
-    animation: fade-out-in2 ease-in-out .85s forwards;
+    animation: fade-out-in ease-in-out 1s forwards;
 }
 
 .fade-up-element{

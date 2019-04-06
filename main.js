@@ -29,6 +29,7 @@ pageSection[currIndex].style.display = 'block';
 sidenavList[currIndex].classList.add('is-active');
 sidenavList[currIndex].firstChild.style.opacity = 1;
 sidenavList[currIndex].firstChild.style.visibility = 'visible';
+slides[1].lastElementChild.style.visibility = 'visible';
 
 function fadeScroll(){
     //fade up/down based on scroll
@@ -117,26 +118,29 @@ document.querySelectorAll('.check-button').forEach((a) => a.addEventListener('cl
     }
 }, false); */
 
-slideContainer.addEventListener('animationend', endFunction);
+// slideContainer.addEventListener('animationend', endFunction);
+
+// function endFunction() {
+//     this.classList.remove('fade-out-in');
+// }
 
 // Next/previous controls
 function plusSlides(n) {
     if(n > 0) {slideRight = true;}
     slideIndex += n;
+    // slideContainer.classList.add('fade-out-in');
     showSlides(slideIndex);
 }
 
 function showSlides(n) {
     if (n >= slides.length) {slideIndex = 0} //go to start
     if (n < 0) {slideIndex = (slides.length - 1)} //go to end
-    //initiate the animation, swap then remove animation
-    slideContainer.classList.add('fade-in-element');
+    //initiate the animation, swap then remove animation  
     swap(slides);
+    
   }
 
-  function endFunction() {
-      this.classList.remove('fade-in-element');
-  }
+  
 
   function swap(arr) {
     var container = arr[0].parentNode;
@@ -159,9 +163,11 @@ function showSlides(n) {
         container.insertBefore(arr[2], arr[0]);//move last to first
         for(let i = 0; i < arr.length; i++){
             arr[i].style.order = i; //change the order of the div
-            arr[i].className = 'side-img mySlides'; //style the side divs
+            arr[i].className = 'side-img project-slide'; //style the side divs
+            arr[i].lastElementChild.style.visibility = 'hidden';
             if(i === 1){    //style main div
-                arr[i].className = 'main-img mySlides';
+                arr[i].className = 'main-img project-slide';
+                arr[i].lastElementChild.style.visibility = 'visible';
             } else if(i >= 3){
                 arr[i].style.display = 'none';
                 return;
