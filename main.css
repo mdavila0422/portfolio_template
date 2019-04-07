@@ -254,7 +254,8 @@ a{
 }
 .projects-text{
     text-align: center;
-    margin: 10px 0;
+    margin: 20px 0;
+    font-size: 1.45em;
 }
 
 .projects-avatar{
@@ -274,7 +275,7 @@ a{
 }
 
 .side-img{
-    transform: scale(0.5);
+    transform: scale(0.55);
 }
 
 .prev, .next {
@@ -294,11 +295,11 @@ a{
 }
 
 .prev {
-    left: -80px;
+    left: -70px;
 }
 
 .next{
-    right: -140px;
+    right: -70px;
 }
 
 /* ========== about ================= */
@@ -320,8 +321,14 @@ a{
 }
 
 .fa-long-arrow-alt-right{
+    position: relative;
     color: blueviolet;
     margin-left: 5px;
+    transition: left .2s ease-in-out;
+}
+
+.about-link:hover .fa-long-arrow-alt-right {
+    left: 8px;
 }
 
 .main-about-container{
