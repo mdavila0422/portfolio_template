@@ -9,11 +9,16 @@ var slideIndex = 1;
 var slideRight = false;
 var scrollUp = false;
 
-window.addEventListener('wheel', function(e){
+
+
+const scrollHandler = (e) => {
     scrollUp = e.wheelDelta < 0 ? false : true;
     fadeScroll();
-});
-window.addEventListener('keyup', function(e){
+}
+const tsHandler = throttle(1000, scrollHandler);
+window.addEventListener("wheel", tHandler);
+
+const keyHandler = (e) => {
     if(e.code === 'ArrowDown'){
         scrollUp = false;
         fadeScroll();
@@ -22,7 +27,24 @@ window.addEventListener('keyup', function(e){
         scrollUp = true;
         fadeScroll();
     } 
-});
+};
+const tkHandler = throttle(1000, keyHandler);
+window.addEventListener("keyup", tkHandler);
+
+document.querySelectorAll('.check-button').forEach((a) => a.addEventListener('click', buttonToggle));
+
+// Throttle function
+function throttle(delay, fn) {
+    let lastCall = 0;
+    return function (...args) {
+      const now = (new Date).getTime();
+      if (now - lastCall < delay) {
+        return;
+      }
+      lastCall = now;
+      return fn(...args);
+    }
+  }
 
 //display the first section
 pageSection[currIndex].style.display = 'block';
@@ -101,8 +123,6 @@ function buttonToggle() {
         this.innerHTML = final;
     }
 }
-
-document.querySelectorAll('.check-button').forEach((a) => a.addEventListener('click', buttonToggle));
 
 /* document.addEventListener('click', function(event) {
     if (event.target.classList.contains('check-button')){
