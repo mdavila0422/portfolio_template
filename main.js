@@ -48,13 +48,15 @@ mc.on("panup pandown", tpHandler);
 let navFinder = e => {
     let target = e.target;
     if(target === sideNav) {return;}
-    hide(currIndex);
+    /* hide(currIndex); */
+    pageSection[currIndex].className = 'm-section';
     removeActive(currIndex);
     currIndex = getElementIndex(target);
     target.classList.add('is-active');
     target.firstChild.style.opacity = 1;
     target.firstChild.style.visibility = 'visible';
-    show(currIndex);
+    /* show(currIndex); */
+    pageSection[currIndex].classList.add('section--is-active');
 }
 sideNav.addEventListener("click", navFinder);
 
@@ -102,7 +104,7 @@ function throttle(delay, fn) {
   }
 
 //display the first section
-pageSection[currIndex].style.display = 'block';
+pageSection[0].classList.add('section--is-active');
 sidenavList[currIndex].classList.add('is-active');
 sidenavList[currIndex].firstChild.style.opacity = 1;
 sidenavList[currIndex].firstChild.style.visibility = 'visible';
@@ -114,17 +116,21 @@ function fadeScroll(){
     if(scrollUp){
         pageSection[currIndex].classList.add('fade-down-element');
         setTimeout(function() {//hide and display other page
-            hide(currIndex);
+            // hide(currIndex);
+            pageSection[currIndex].className = 'm-section';
             currIndex === 0 ? currIndex = (pageSection.length - 1) : currIndex--;
-            show(currIndex);//show next page in
+            // show(currIndex);//show next page in
+            pageSection[currIndex].classList.add('section--is-active');
             sidenavList[currIndex].classList.add('is-active'); 
         }, 500);
     } else{
         pageSection[currIndex].classList.add('fade-up-element');
         setTimeout(function() {//hide and display other page
-            hide(currIndex);
+            // hide(currIndex);
+            pageSection[currIndex].className = 'm-section';
             currIndex === (pageSection.length - 1) ? currIndex = 0 : currIndex++;
-            show(currIndex);
+            // show(currIndex);
+            pageSection[currIndex].classList.add('section--is-active');
             sidenavList[currIndex].classList.add('is-active');
         }, 500);
     }
