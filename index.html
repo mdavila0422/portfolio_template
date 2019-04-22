@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
@@ -30,132 +31,136 @@
                 </ul>
             </nav>
         
-            <section id="Home" class="">
-                <div class="container">
-                    <div class="main-home">
-                            <div class="main-home-container">
-                                <h1 class="home-title">Welcome to<br> Martin's <br> portfolio</h1>
-                                <button class="button home-button">Hire me<span class="blue"></span></button>
+            <div class="main-content">
+                <section id="Home" class="m-section">
+                    <div class="container">
+                        <div class="main-home">
+                                <div class="main-home-container">
+                                    <h1 class="home-title">Welcome to<br> Martin's <br> portfolio</h1>
+                                    <button class="button home-button">Hire me<span class="blue"></span></button>
+                                </div><!--
+                                --><div class="main-home-container">
+                                        <img class="home-img" src="assets/match.jpeg" alt="match">
+                                </div>
+                        </div>
+                
+                        <div class="info-container">
+                            <div class="info-obj">
+                                <h2>Self Taught</h2>
+                                <p>Lorem ipsum dolor sit amet.<br> Consectetur adipisicing elit sed dol.</p>
                             </div><!--
-                            --><div class="main-home-container">
-                                    <img class="home-img" src="assets/match.jpeg" alt="match">
+                
+                            --><div class="info-obj">
+                                <h2>Higly Passionate</h2>
+                                <p>Lorem ipsum dolor sit amet.<br> Consectetur adipisicing elit sed dol.</p>
+                                </div><!--
+                        
+                            --><div class="info-obj">
+                                <h2>Analytical</h2>
+                                <p>Lorem ipsum dolor sit amet.<br> Consectetur adipisicing elit sed dol.</p>
                             </div>
+                        </div>
                     </div>
             
-                    <div class="info-container">
-                        <h2>Self Taught</h2>
-                        <p>Lorem ipsum dolor sit amet.<br> Consectetur adipisicing elit sed dol.</p>
-                    </div><!--
-        
-                    --><div class="info-container">
-                        <h2>Higly Passionate</h2>
-                        <p>Lorem ipsum dolor sit amet.<br> Consectetur adipisicing elit sed dol.</p>
-                        </div><!--
+                </section>
+            
+                <section id="Projects" class="m-section">
+                    <h1 class="projects-title section-title">Selected Work</h1>
+                    <div class="project-container">
+                        <div class="project-slide side-img">
+                            <img class="projects-avatar" src="assets/calc.jpg">
+                            <h2 class="project-name projects-text">Calculator</h2>
+                            <p class="project-description projects-text">This is a simple calculator written in JS</p>
+                        </div>
+                        <div class="project-slide main-img">
+                            <img class="projects-avatar" src="assets/match.jpeg">
+                            <h2 class="project-name projects-text">Ghibli App</h2>
+                            <p class="project-description projects-text">This is a web app to view all ghibli films</p>
+                        </div>
+                        <div class="project-slide side-img">
+                            <img class="projects-avatar" src="assets/snazzy-image.png">
+                            <h2 class="project-name projects-text">Tic Tac Toe</h2>
+                            <p class="project-description projects-text">This is a simple calculator written in JS</p>
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                    
+                </section>
+            
+                <section id="About" class="m-section">
+                    <div class="container">
+                        <div class="main-about">
+                                <div class="main-about-container">
+                                    <h1 class="about-title">Passion<br> for <br> learning</h1>
+                                    <a class="about-link" href="https://www.linkedin.com/in/martin-davila-871b88108/">Career<i class="fas fa-long-arrow-alt-right"></i></a>
+                                </div><!--
+                                --><div class="main-about-container">
+                                        <img class="about-img" src="assets/match.jpeg" alt="match">
+                                </div>
+                        </div>
                 
-                    --><div class="info-container">
-                        <h2>Analytical</h2>
-                        <p>Lorem ipsum dolor sit amet.<br> Consectetur adipisicing elit sed dol.</p>
-                    </div>
-                </div>
-        
-            </section>
-        
-            <section id="Projects" class="">
-                <h1 class="projects-title projects-text section-title">Selected Work</h1>
-                <div id="showScroll"></div>
-                <div class="project-container">
-                    <div class="project-slide side-img">
-                        <img class="projects-avatar" src="assets/calc.jpg">
-                        <h2 class="project-name projects-text">Calculator</h2>
-                        <p class="project-description projects-text">This is a simple calculator written in JS</p>
-                    </div>
-                    <div class="project-slide main-img">
-                        <img class="projects-avatar" src="assets/match.jpeg">
-                        <h2 class="project-name projects-text">Ghibli App</h2>
-                        <p class="project-description projects-text">This is a web app to view all ghibli films</p>
-                    </div>
-                    <div class="project-slide side-img">
-                        <img class="projects-avatar" src="assets/snazzy-image.png">
-                        <h2 class="project-name projects-text">Tic Tac Toe</h2>
-                        <p class="project-description projects-text">This is a simple calculator written in JS</p>
-                    </div>
-                </div>
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            </section>
-        
-            <section id="About" class="">
-                <div class="container">
-                    <div class="main-about">
-                            <div class="main-about-container">
-                                <h1 class="about-title">Passion<br> for <br> learning</h1>
-                                <a class="about-link" href="https://www.linkedin.com/in/martin-davila-871b88108/">Career<i class="fas fa-long-arrow-alt-right"></i></a>
+                        <div class="about-container">
+                            <img class="about-img-secondary" src="assets/match.jpeg">
+                            <h3>Winners</h3>
+                        </div><!--
+            
+                        --><div class="about-container">
+                            <img class="about-img-secondary" src="assets/match.jpeg">
+                            <h3>Philosophy</h3>
                             </div><!--
-                            --><div class="main-about-container">
-                                    <img class="about-img" src="assets/match.jpeg" alt="match">
-                            </div>
+                    
+                        --><div class="about-container">
+                            <img class="about-img-secondary" src="assets/match.jpeg">
+                            <h3>History</h3>
+                        </div>
                     </div>
             
-                    <div class="about-container">
-                        <img class="about-img-secondary" src="assets/match.jpeg">
-                        <h3>Winners</h3>
-                    </div><!--
-        
-                    --><div class="about-container">
-                        <img class="about-img-secondary" src="assets/match.jpeg">
-                        <h3>Philosophy</h3>
-                        </div><!--
-                
-                    --><div class="about-container">
-                        <img class="about-img-secondary" src="assets/match.jpeg">
-                        <h3>History</h3>
-                    </div>
-                </div>
-        
-            </section>
-        
-            <section id="Contact" class="container">
-                <div class="map-container">
-                    <h1>Contact</h1>
-                    <div class="modal">
-                        <p>7405 Charmant Dr</p><br>
-                        <p>madavila04@gmail.com</p><br>
-                        <p>(858) 829 - 1375</p>
-                        <button class="contact-button linkedin"><i class="fab fa-linkedin"></i> LinkedIn</button>
-                        <button class="contact-button github"><i class="fab fa-github"></i> Github</button>
-                        <button class="contact-button contact">Contact Me</button>
-                    </div>
-                </div>
-            </section>
+                </section>
+            
+                <section id="Contact" class="">
+                    <div class="map-container">
 
-            <section id="Hire" class="">
-                <div class="hire-container">
-                    <h1 class="section-title">You want to do</h1>
-                    <div class="category-container">
-                        <div class="category-a">
-                                <button class="check-button"> App Design</button>
-                                <button class="check-button"> Graphic Design</button>
-                                <button class="check-button"> Motion Design</button>
-                            </div>
-                            <div class="category-b">
-                                <button class="check-button"> UX Design</button>
-                                <button class="check-button"> Web Design</button>
-                                <button class="check-button"> Marketing</button>
-                            </div>
+                        <div class="modal">
+                            <p>7405 Charmant Dr</p><br>
+                            <p>madavila04@gmail.com</p><br>
+                            <p>(858) 829 - 1375</p>
+                            <button class="contact-button linkedin"><i class="fab fa-linkedin"></i> LinkedIn</button>
+                            <button class="contact-button github"><i class="fab fa-github"></i> Github</button>
+                            <button class="contact-button contact">Contact Me</button>
+                        </div>
                     </div>
-                    <div class="info-request">
-                        <div class="input-name">
-                                <input type="text" class="input-name">
-                                <label for="name">Name</label>
-                            </div>
-                            <div class="input-email">
-                                    <input type="email" class="input-email">
-                                    <label for="name">Email</label>
-                            </div>
+                </section>
+    
+                <section id="Hire" class="m-section">
+                    <div class="hire-container">
+                        <h1 class="section-title">You want to do</h1>
+                        <div class="category-container">
+                            <div class="category-a">
+                                    <button class="check-button"> App Design</button>
+                                    <button class="check-button"> Graphic Design</button>
+                                    <button class="check-button"> Motion Design</button>
+                                </div>
+                                <div class="category-b">
+                                    <button class="check-button"> UX Design</button>
+                                    <button class="check-button"> Web Design</button>
+                                    <button class="check-button"> Marketing</button>
+                                </div>
+                        </div>
+                        <div class="info-request">
+                            <div class="input-name">
+                                    <input type="text" class="input-name">
+                                    <label for="name">Name</label>
+                                </div>
+                                <div class="input-email">
+                                        <input type="email" class="input-email">
+                                        <label for="name">Email</label>
+                                </div>
+                        </div>
+                        <button class="button request-button">Send Request</button>
                     </div>
-                    <button class="button request-button">Send Request</button>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
     </div>
     <script src="main.js"></script>

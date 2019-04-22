@@ -1,5 +1,6 @@
 var pageSection = document.querySelectorAll("section");
 var currentPage = document.querySelector("section div.display");
+var sideNav = document.querySelector(".side-nav-list");
 var sidenavList = document.querySelectorAll('.side-nav-list li');
 var slideContainer = document.querySelector("#Projects div.project-container");
 var slides = document.getElementsByClassName("project-slide");
@@ -9,11 +10,16 @@ var slideIndex = 1;
 var slideRight = false;
 var scrollUp = false;
 
-window.addEventListener('wheel', function(e){
+/* Scroll Event handler throttled */
+const scrollHandler = e => {
     scrollUp = e.wheelDelta < 0 ? false : true;
     fadeScroll();
-});
-window.addEventListener('keyup', function(e){
+};
+const tsHandler = throttle(1000, scrollHandler);
+window.addEventListener("wheel", tsHandler);
+
+/* Keyup Event handler throttled */
+const keyHandler = e => {
     if(e.code === 'ArrowDown'){
         scrollUp = false;
         fadeScroll();
@@ -22,10 +28,83 @@ window.addEventListener('keyup', function(e){
         scrollUp = true;
         fadeScroll();
     } 
+};
+const tkHandler = throttle(1000, keyHandler);
+window.addEventListener("keyup", tkHandler);
+
+/* Vertical Pan event handler */
+var mc = new Hammer(window);
+const panHandler = e => {
+    scrollUp = e.type === 'panup' ? true : false;
+    fadeScroll();
+};
+const tpHandler = throttle(1000, panHandler);
+mc.get('pan').set({
+    direction: Hammer.DIRECTION_ALL
 });
+mc.on("panup pandown", tpHandler);
+
+/* sidenav click event handler */
+let navFinder = e => {
+    let target = e.target;
+    if(target === sideNav) {return;}
+    /* hide(currIndex); */
+    pageSection[currIndex].className = 'm-section';
+    removeActive(currIndex);
+    currIndex = getElementIndex(target);
+    target.classList.add('is-active');
+    target.firstChild.style.opacity = 1;
+    target.firstChild.style.visibility = 'visible';
+    /* show(currIndex); */
+    pageSection[currIndex].classList.add('section--is-active');
+}
+sideNav.addEventListener("click", navFinder);
+
+function getElementIndex(node) {
+    var index = 0;
+    while ( (node = node.previousElementSibling) ) {
+        index++;
+    }
+    return index;
+}
+
+function removeActive(index) {
+    sidenavList[index].classList.remove('is-active');
+    sidenavList[index].firstChild.style.opacity = 0;
+    sidenavList[index].firstChild.style.visibility = 'hidden';
+}
+
+/* contact page button event listener */
+let hireContainer = document.querySelector('.hire-container');
+hireContainer.addEventListener('click', function(event) {
+    if (event.target.classList.contains('check-button')){
+        const icon = "<i id='icon' class='fas fa-check'></i>";
+        var final = icon + event.target.innerHTML;
+        if (event.target.className.indexOf('checked') > -1) {
+            event.target.classList.remove('checked');
+            event.target.removeChild(event.target.firstChild);
+        } else {
+            event.target.classList.add('checked');
+            event.target.innerHTML = final;
+        }
+    }
+}, false);
+
+/* Throttle function */
+function throttle(delay, fn) {
+    let lastCall = 0;
+    return function (...args) {
+      const now = (new Date).getTime();
+      if (now - lastCall < delay) {
+        return;
+      }
+      lastCall = now;
+      return fn(...args);
+    }
+  }
 
 //display the first section
-pageSection[currIndex].style.display = 'block';
+pageSection[0].classList.add('section--is-active');
 sidenavList[currIndex].classList.add('is-active');
 sidenavList[currIndex].firstChild.style.opacity = 1;
 sidenavList[currIndex].firstChild.style.visibility = 'visible';
@@ -37,17 +116,21 @@ function fadeScroll(){
     if(scrollUp){
         pageSection[currIndex].classList.add('fade-down-element');
         setTimeout(function() {//hide and display other page
-            hide(currIndex);
+            // hide(currIndex);
+            pageSection[currIndex].className = 'm-section';
             currIndex === 0 ? currIndex = (pageSection.length - 1) : currIndex--;
-            show(currIndex);//show next page in
+            // show(currIndex);//show next page in
+            pageSection[currIndex].classList.add('section--is-active');
             sidenavList[currIndex].classList.add('is-active'); 
         }, 500);
     } else{
         pageSection[currIndex].classList.add('fade-up-element');
         setTimeout(function() {//hide and display other page
-            hide(currIndex);
+            // hide(currIndex);
+            pageSection[currIndex].className = 'm-section';
             currIndex === (pageSection.length - 1) ? currIndex = 0 : currIndex++;
-            show(currIndex);
+            // show(currIndex);
+            pageSection[currIndex].classList.add('section--is-active');
             sidenavList[currIndex].classList.add('is-active');
         }, 500);
     }
@@ -90,41 +173,7 @@ function removeElement(elementID){
     element.parentNode.removeChild(element);
 }
 
-function buttonToggle() {
-    const icon = "<i id='icon' class='fas fa-check'></i>";
-    var final = icon + this.innerHTML;
-    if (this.className.indexOf('checked') > -1) {
-        this.classList.remove('checked');
-        this.removeChild(this.firstChild);
-    } else {
-        this.classList.add('checked');
-        this.innerHTML = final;
-    }
-}
-
-document.querySelectorAll('.check-button').forEach((a) => a.addEventListener('click', buttonToggle));
-
-/* document.addEventListener('click', function(event) {
-    if (event.target.classList.contains('check-button')){
-        const icon = "<i id='icon' class='fas fa-check'></i>";
-        var final = icon + event.target.innerHTML;
-        if (event.target.className.indexOf('checked') > -1) {
-        event.target.classList.remove('checked');
-        event.target.removeChild(event.target.firstChild);
-        } else {
-        event.target.classList.add('checked');
-        event.target.innerHTML = final;
-        }
-    }
-}, false); */
-
-// slideContainer.addEventListener('animationend', endFunction);
-
-// function endFunction() {
-//     this.classList.remove('fade-out-in');
-// }
-
-// Next/previous controls
+/* Next/previous controls on projects slides */
 function plusSlides(n) {
     if(n > 0) {slideRight = true;}
     slideIndex += n;
@@ -137,10 +186,7 @@ function showSlides(n) {
     if (n < 0) {slideIndex = (slides.length - 1)} //go to end
     //initiate the animation, swap then remove animation  
     swap(slides);
-    
   }
-
-  
 
   function swap(arr) {
     var container = arr[0].parentNode;
