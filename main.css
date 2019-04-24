@@ -86,6 +86,8 @@ a{
 .logo{
     margin: 20px;
     color: rgba(27, 196, 35, 0.671);
+    max-width: 100px;
+    max-height: 100px;
 }
 
 .right{ 
