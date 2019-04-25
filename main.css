@@ -152,7 +152,7 @@ a{
     top: 5px;
     left: 10px;
     color: #555;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 300;
 }
 
@@ -161,7 +161,7 @@ a{
     position: relative;
     top: 5px;
     left: 10px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 300;
     color: goldenrod;
     opacity: 0;
